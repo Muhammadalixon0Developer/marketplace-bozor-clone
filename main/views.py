@@ -20,7 +20,7 @@ class IndexView(View):
 
 class CategoryView(View):
     def get(self, request, category_name):
-        category = Category.objects.get_object_or_404(Category, name=category_name)
+        category = get_object_or_404(Category, name=category_name)
         products = Product.objects.filter(category=category)
         q = request.GET.get('q', '')
         if q:
